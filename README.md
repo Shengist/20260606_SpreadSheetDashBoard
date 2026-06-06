@@ -19,6 +19,8 @@ directory = "public"
 binding = "ASSETS"
 ```
 
+`wrangler` 已放在 `devDependencies`，請提交 `package.json` 和 `package-lock.json`。Cloudflare 會在建置時安裝依賴，不需要也不應該提交 `node_modules/`。
+
 本機測試 Cloudflare Worker：
 
 ```bash
@@ -53,6 +55,7 @@ cp .env.example .env
 ```
 
 `server.mjs` 會在本機自動讀取 `.env`。如果沒有設定 `SHEET_CSV_URL`，更新資料 API 會回傳設定錯誤。
+
 ## 本機 Node 模式
 保留 `server.mjs` 是為了本機或 Railway 類型環境快速測試：
 

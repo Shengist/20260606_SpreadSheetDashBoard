@@ -6,10 +6,13 @@
   "scripts": {
     "start": "node server.mjs",
     "dev": "node server.mjs",
-    "pages:dev": "npx wrangler pages dev public",
-    "pages:deploy": "npx wrangler pages deploy public"
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "wrangler": "^4.98.0"
   }
 }
