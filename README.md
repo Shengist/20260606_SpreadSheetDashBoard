@@ -11,6 +11,14 @@
 - Build output directory：`public`
 - Functions directory：`functions`
 
+專案也包含 [wrangler.toml](./wrangler.toml)，其中已設定：
+
+```toml
+pages_build_output_dir = "public"
+```
+
+如果 Cloudflare 顯示 `Could not detect a directory containing static files`，通常是 Pages 的 build output directory 沒設成 `public`，或 deploy command 沒有明確指向 `public`。
+
 也可以用 Wrangler：
 
 ```bash
