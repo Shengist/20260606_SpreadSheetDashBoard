@@ -1,4 +1,4 @@
-name = "repair-request-bi-dashboard"
+name = "spreadsheetdashboard"
 compatibility_date = "2026-06-06"
 main = "src/index.js"
 
