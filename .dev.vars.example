@@ -1,0 +1,3 @@
+# Copy this file to .dev.vars for local Cloudflare Pages Functions development.
+SHEET_CSV_URL=""
+REPAIR_FORM_URL=""

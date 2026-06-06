@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>設備請修資料面板</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>設備請修資料面板</h1>
+          <p id="dataStatus">尚未更新資料</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn secondary" id="resetFiltersButton" type="button">清除篩選</button>
+          <button class="btn primary" id="refreshButton" type="button">更新資料</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="kpi-grid" aria-label="維修概況">
+          <article class="kpi">
+            <span>總案件數</span>
+            <strong id="totalCount">--</strong>
+          </article>
+          <article class="kpi">
+            <span>目前篩選</span>
+            <strong id="filteredCount">--</strong>
+          </article>
+          <article class="kpi">
+            <span>最高設備</span>
+            <strong id="topEquipment">--</strong>
+          </article>
+        </section>
+
+        <section class="filter-grid" aria-label="篩選條件">
+          <article class="panel equipment-filter">
+            <div class="panel-header">
+              <h2>設備</h2>
+              <button class="inline-clear" id="clearActiveFiltersButton" type="button" hidden>清除篩選</button>
+            </div>
+            <div class="equipment-list" id="equipmentFilterList"></div>
+          </article>
+
+          <article class="panel location-filter">
+            <div class="panel-header">
+              <h2>地點</h2>
+              <span>輸入部分文字比對</span>
+            </div>
+            <div class="location-search">
+              <input id="locationInput" type="search" placeholder="例如 12G、茶水間、8F" autocomplete="off" />
+              <button class="btn secondary-dark" id="clearLocationButton" type="button">清除</button>
+            </div>
+            <div class="location-suggestions" id="locationSuggestions"></div>
+          </article>
+
+          <article class="panel period-filter">
+            <div class="panel-header">
+              <h2>時間週期</h2>
+              <span>以發生日期篩選</span>
+            </div>
+            <button class="period-trigger" id="dateRangeButton" type="button">全部期間</button>
+            <div class="year-list" id="yearFilterList"></div>
+            <div class="date-popover" id="datePopover" hidden>
+              <label>
+                <span>開始日期</span>
+                <input id="startDateInput" type="date" />
+              </label>
+              <label>
+                <span>結束日期</span>
+                <input id="endDateInput" type="date" />
+              </label>
+              <div class="date-actions">
+                <button class="btn secondary-dark" id="clearDateButton" type="button">清除</button>
+                <button class="btn primary-dark" id="applyDateButton" type="button">套用</button>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel wide">
+            <div class="panel-header">
+              <h2>設備案件數</h2>
+              <span>依目前篩選顯示</span>
+            </div>
+            <div class="bar-chart" id="equipmentChart"></div>
+          </article>
+
+          <article class="panel wide">
+            <div class="panel-header">
+              <h2>月趨勢</h2>
+              <span>依發生日期統計</span>
+            </div>
+            <svg class="line-chart" id="monthChart" role="img" aria-label="月趨勢圖"></svg>
+          </article>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-header">
+            <h2>案件明細</h2>
+            <span id="tableSummary">尚無資料</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>發生日期</th>
+                  <th>設備</th>
+                  <th>地點</th>
+                  <th>遭遇問題</th>
+                </tr>
+              </thead>
+              <tbody id="recordsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
